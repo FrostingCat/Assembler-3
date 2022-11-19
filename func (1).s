@@ -34,11 +34,11 @@ get:
 	cmpq	$1, %r12	    # сравниваем i с 1
 	jle	.L3	                # если меньше или равно, прыгаем в метку
 	movl	$0, -4(%rbp)	# аналогично начинаем второй цикл
-	jmp	.L4	#
+	jmp	.L4
 .L5:
-	movl	-4(%rbp), %eax	# i, tmp91
+	movl	-4(%rbp), %eax
 	cltq
-	leaq	0(,%rax,4), %rdx	#, _5
+	leaq	0(,%rax,4), %rdx	
 	movq	%r14, %rax
 	addq	%rax, %rdx
 	movq	%r13, %rax
