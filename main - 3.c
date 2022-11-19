@@ -12,7 +12,6 @@
 
 
 void get(int *a, int *b, FILE* file) {
-    int c;
     for (int i = 0; i < 2; i++) {
         fscanf(file, "%d", &a[i]);
     }
@@ -57,6 +56,8 @@ void count(int *ab, int *pred, int gen) {
     }
     if (gen) {
         fprintf(output,"a = %d, b = %d\nintegral [%d; %d]\nresult = %lf", ab[0], ab[1], pred[0], pred[1], res2);
+    } else {
+        fprintf(output,"result = %lf", res2);
     }
     
     fclose(output);
