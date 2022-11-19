@@ -342,24 +342,25 @@ generate:
 	movq	%r14, %rdx
 	movl	%eax, (%rdx)	# prod[0] = rand() % 5
 	call	rand@PLT
-	leal	5(%rax), %ecx
-	movq	%r14, %rax
-	leaq	4(%rax), %rsi
-	movslq	%ecx, %rax
+	movl	%eax, %edx
+	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
 	shrq	$32, %rax
 	sarl	$3, %eax
-	movl	%ecx, %edi
-	sarl	$31, %edi
-	subl	%edi, %eax
-	movl	%eax, %edx
-	movl	%edx, %eax
+	movl	%edx, %esi
+	sarl	$31, %esi
+	subl	%esi, %eax
+	movl	%eax, %ecx
+	movl	%ecx, %eax
 	sall	$2, %eax
-	addl	%edx, %eax
+	addl	%ecx, %eax
 	sall	$2, %eax
-	movl	%ecx, %edx
 	subl	%eax, %edx
-	movl	%edx, (%rsi)	    # prod[1] = (5 + rand()) % 20
+	movl	%edx, %ecx
+	movq	%r14, %rax
+	addq	$4, %rax
+	leal	5(%rcx), %edx
+	movl	%edx, (%rax)	    # prod[1] = 5 + (rand() % 20)
 	nop	
 	leave	
     popq %r14
