@@ -71,7 +71,7 @@ void generate(int *ab, int *prod) {
     ab[0] = rand() % 10;
     ab[1] = rand() % 10;
     prod[0] = rand() % 5;
-    prod[1] = (5 + rand()) % 20;
+    prod[1] = 5 + (rand() % 20);
 }
 
 int main(int argc, char *argv[]) {
