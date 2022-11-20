@@ -54,6 +54,8 @@ void count(int *ab, int *pred, int gen) {
         
         n *= 2;
     }
+    //int end = clock();
+    //printf("%lf", (double)(end - start) / CLOCKS_PER_SEC);
     if (gen) {
         fprintf(output,"a = %d, b = %d\nintegral [%d; %d]\nresult = %lf", ab[0], ab[1], pred[0], pred[1], res2);
     } else {
@@ -61,8 +63,6 @@ void count(int *ab, int *pred, int gen) {
     }
     
     fclose(output);
-    //int end = clock();
-    //printf("%lf", (double)(end - start) / CLOCKS_PER_SEC);
 }
 
 void generate(int *ab, int *prod) {
